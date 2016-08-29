@@ -14,6 +14,10 @@ module.exports = [
 		}
 	},
 	{
+    test: /\.styl$/,
+    loader: 'style-loader!css-loader!stylus-loader'
+  },
+	{
 		test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
 		loader: "file"
 	},

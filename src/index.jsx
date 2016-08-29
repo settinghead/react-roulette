@@ -1,16 +1,28 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from './index.css';
+require('./roulette.styl');
 import React from 'react';
 import { render } from 'react-dom';
+
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>It Works!</h1>
-        <p>This React project just works including <span className={styles.blueBg}>module</span> local styles.</p>
-        <p>Global bootstrap css import works too as you can see on the following button.</p>
-        <p><a className="btn btn-primary btn-lg">Enjoy!</a></p>
+        <ul id="roulette">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div className="controller">
+          <button type="button" id="rollRnd" className="rnd btn btn-primary btn-lg">Spin</button>
+        </div>
       </div>
     )
   }

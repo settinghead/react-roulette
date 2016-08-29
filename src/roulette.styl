@@ -1,0 +1,87 @@
+bg = #FFF100 #F39800 #EB6100 #E60012 #E4007F #601986 #0B318F #036EB8 #00913A #8FC31F
+
+.controller
+  position relative
+  text-align center
+  margin 10px
+  button
+    line-height 30px
+  .num
+    width 30px
+
+#roulette
+  margin-top 30px
+  margin-bottom 30px
+  margin-left auto
+  margin-right auto
+  position relative
+  animation-timing-function cubic-bezier(0,.4,.4,1.04)
+  animation-duration 1.8s
+  animation-fill-mode forwards
+  animation-iteration-count 1
+  width 308px
+  height 308px
+  border-radius 50%
+  overflow hidden
+  counter-reset num
+  for i in (1..10)
+    &.number-{i}
+      animation-name 'number-' + i
+  &::after
+    content ""
+    display block
+    width w = 80px
+    height w
+    background-color #fff
+    border-radius 50%
+    margin auto
+    top 0
+    right 0
+    bottom 0
+    left 0
+    position absolute
+  li
+    top 0
+    right 0
+    left 0
+    margin auto
+    position absolute
+    display block
+    width 100px
+    height 154px
+    transform-origin 50px 154px
+    &::before
+      top 0
+      left 0
+      position absolute
+      display inline-block
+      content ""
+      width 0
+      height 0
+      border-style solid
+      border-width 154px 50px
+      z-index 0
+    &::after
+      counter-increment num
+      content counter(num)
+      z-index 5
+      position absolute
+      display block
+      width 100px
+      text-align center
+      line-height 40px
+      font-size 20px
+      color #fff
+      font-weight bold
+    for c, i in bg
+      &:nth-of-type({i+1})
+        transform rotate((i+1) * 36deg)
+        &::before
+          border-color c transparent transparent
+
+for d in (1..10)
+	@keyframes number-{d}
+		from
+			transform rotate(0)
+		to
+			transform rotate((360 * 9 - 36 * d)deg)

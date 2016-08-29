@@ -1,4 +1,4 @@
-bg = #FFF100 #F39800 #EB6100 #E60012 #E4007F #601986 #0B318F #036EB8 #00913A #8FC31F
+bg = #8FC31F #FFF100 #E60012 #FFF100 #E60012 #8FC31F #E60012 #8FC31F #FFF100 purple
 n = 10
 
 .controller
@@ -85,4 +85,4 @@ for d in (1..n)
 		from
 			transform rotate(0)
 		to
-			transform rotate((360 * 9 - 36 * d)deg)
+			transform rotate((360 * (n - 1) - (360/n) * d)deg)

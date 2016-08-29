@@ -1,4 +1,5 @@
 bg = #FFF100 #F39800 #EB6100 #E60012 #E4007F #601986 #0B318F #036EB8 #00913A #8FC31F
+n = 10
 
 .controller
   position relative
@@ -15,18 +16,18 @@ bg = #FFF100 #F39800 #EB6100 #E60012 #E4007F #601986 #0B318F #036EB8 #00913A #8F
   margin-left auto
   margin-right auto
   position relative
-  animation-timing-function cubic-bezier(0,.4,.4,1.04)
-  animation-duration 1.8s
-  animation-fill-mode forwards
-  animation-iteration-count 1
+  -webkit-animation-timing-function cubic-bezier(0,.4,.4,1.04)
+  -webkit-animation-duration 1.8s
+  -webkit-animation-fill-mode forwards
+  -webkit-animation-iteration-count 1
   width 308px
   height 308px
   border-radius 50%
   overflow hidden
   counter-reset num
-  for i in (1..10)
+  for i in (1..n)
     &.number-{i}
-      animation-name 'number-' + i
+      -webkit-animation-name 'number-' + i
   &::after
     content ""
     display block
@@ -75,11 +76,11 @@ bg = #FFF100 #F39800 #EB6100 #E60012 #E4007F #601986 #0B318F #036EB8 #00913A #8F
       font-weight bold
     for c, i in bg
       &:nth-of-type({i+1})
-        transform rotate((i+1) * 36deg)
+        transform rotate((i+1) * (360/n)deg)
         &::before
           border-color c transparent transparent
 
-for d in (1..10)
+for d in (1..n)
 	@keyframes number-{d}
 		from
 			transform rotate(0)
